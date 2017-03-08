@@ -24,7 +24,10 @@ if args.command.startswith('cons'):
         print('Error: No valid scouting JSON in the current directory.')
 elif args.command == 'csv' or args.command == 'ss' or args.command == 'spreadsheet':
     if os.path.exists('%s/data.json' % (os.getcwd())):
-        os.remove('%s/data.csv' % (os.getcwd()))
+        try:
+            os.remove('%s/data.csv' % (os.getcwd()))
+        except OSError:
+            pass
         matches = json.loads(open('data.json').read())
         dest = csv.writer(open('data.csv', 'w+', newline=''))
 
