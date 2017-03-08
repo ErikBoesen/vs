@@ -13,10 +13,10 @@ Convenient CLI app for manipulation of [VictiScout](https://github.com/frc1418/V
 
     Make sure to use `chmod +x vs.py` to mark the script as executable if necessary.
 
-## Tools
-Tools are being added as needed, so for now they're few. That will gradually change.
-* `gather <directory>` - combine many different JSON scouting data files into one.
+## Commands
+Commands are being added as needed, so for now they're few. That will gradually change.
+* `cons` - combine many different JSON scouting data files from different scouters into one.
 
-        vs gather collection
+        vs cons
 
-    would compile all valid scouting data files in the directory `collection/` into `collection/data.json`.
+    would compile all valid scouting data files in the current working directory into the file `data.json`. (The keywords `consolidate`, `consol`, and variations thereupon beginning with `cons` all work.)

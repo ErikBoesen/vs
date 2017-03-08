@@ -5,23 +5,21 @@ import os
 import json
 
 parser = argparse.ArgumentParser(description='Process VictiScout data.')
-parser.add_argument('tool', type=str, help='What you want to do.')
-parser.add_argument('-d', dest='dir', help='Directory to process files from.')
+parser.add_argument('command', type=str, help='What you want to do.')
 
 args = parser.parse_args()
-print(args.tool)
 
-if args.tool == 'gather':
-    # TODO: Is there an easier way to get full paths to listed directories?
-    files = ['%s/%s' % (args.dir, f) for f in os.listdir(args.dir) if f.endswith('.json')]
-    print(files)
-    matches = []
+if args.command.startswith('cons'):
+    files = ['%s/%s' % (os.getcwd(), f) for f in os.listdir(os.getcwd()) if f.endswith('.json')]
+    if len(files):
+        matches = []
 
-    for f in files:
-        matches += json.loads(open(f).read())
-        os.remove(f)
+        for f in files:
+            matches += json.loads(open(f).read())
+            os.remove(f)
 
-    open('%s/data.json' % (args.dir), 'w').write(json.dumps(matches))
-
+        open('%s/data.json' % (os.getcwd()), 'w').write(json.dumps(matches))
+    else:
+        print('Error: No valid scouting JSON in the current directory.')
 else:
     print('Unknown tool %s.' % (args.tool))
