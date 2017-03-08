@@ -1,5 +1,5 @@
 # `vs`
-Convenient CLI app for manipulation of [VictiScout](https://github.com/frc1418/VictiScout) data.
+Convenient CLI app for manipulation of [VictiScout](https://github.com/frc1418/VictiScout) data. Also works with any compatible JSON-format data.
 
 ## Installation
 * Install `python3`.
@@ -11,12 +11,9 @@ Convenient CLI app for manipulation of [VictiScout](https://github.com/frc1418/V
 
         cp vs.py /usr/local/bin/vs
 
-    Make sure to use `chmod +x vs.py` to mark the script as executable if necessary.
+    Make sure to use `chmod +x vs.py` first to mark the script as executable if necessary.
 
 ## Commands
 Commands are being added as needed, so for now they're few. That will gradually change.
-* `cons` - combine many different JSON scouting data files from different scouters into one.
-
-        vs cons
-
-    would compile all valid scouting data files in the current working directory into the file `data.json`. (The keywords `consolidate`, `consol`, and variations thereupon beginning with `cons` all work.)
+* `vs cons` - consolidate all JSON scouting data files in the working directory into one.
+* `vs csv`/`spreadsheet`/`ss` - convert raw JSON file into a CSV spreadsheet. [drv](https://github.com/ErikBoesen/drv) can be used to easily send this file to Google Drive for manipulation without any proprietary programs.
