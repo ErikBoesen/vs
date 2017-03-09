@@ -12,6 +12,7 @@ args = parser.parse_args()
 
 if args.command.startswith('cons'):
     files = ['%s/%s' % (os.getcwd(), f) for f in os.listdir(os.getcwd()) if f.endswith('.json')]
+    dest = '%s/data.json' % os.getcwd()
     if len(files):
         matches = []
 
@@ -19,13 +20,14 @@ if args.command.startswith('cons'):
             matches += json.loads(open(f).read())
             os.remove(f)
 
-        open('%s/data.json' % (os.getcwd()), 'w').write(json.dumps(matches))
+        open(dest, 'w').write(json.dumps(matches))
+        print('All data moved into %s successfully.' % dest)
     else:
         print('Error: No valid scouting JSON in the current directory.')
 elif args.command == 'csv' or args.command == 'ss' or args.command == 'spreadsheet':
-    if os.path.exists('%s/data.json' % (os.getcwd())):
+    if os.path.exists('%s/data.json' % os.getcwd()):
         try:
-            os.remove('%s/data.csv' % (os.getcwd()))
+            os.remove('%s/data.csv' % os.getcwd())
         except OSError:
             pass
         matches = json.loads(open('data.json').read())
@@ -40,4 +42,4 @@ elif args.command == 'csv' or args.command == 'ss' or args.command == 'spreadshe
     else:
         print('Error: No valid scouting JSON in the current directory.')
 else:
-    print('Unknown command %s.' % (args.command))
+    print('Unknown command %s.' % args.command)
