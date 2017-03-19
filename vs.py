@@ -4,6 +4,7 @@ import argparse
 import os
 import json
 import csv
+from termcolor import colored
 
 parser = argparse.ArgumentParser(description='Process VictiScout data.')
 parser.add_argument('command', type=str, help='What you want to do.')
@@ -17,11 +18,18 @@ if args.command.startswith('cons'):
         matches = []
 
         for f in files:
-            matches += json.loads(open(f).read())
+            print('Parsing %s...' % f)
+            try:
+                matches += json.loads(open(f).read())
+            except json.decoder.JSONDecodeError:
+                files.remove(f)
+                print(colored('File \'%s\' has parsing errors. Resolve and run again.' % f.split('/')[-1], 'red'))
+
+        for f in files:
             os.remove(f)
 
         open(dest, 'w').write(json.dumps(matches))
-        print('All data moved into %s successfully.' % dest)
+        print('Data moved into %s successfully.' % dest)
     else:
         print('Error: No valid scouting JSON in the current directory.')
 elif args.command == 'csv' or args.command == 'ss' or args.command == 'spreadsheet':
