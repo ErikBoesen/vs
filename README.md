@@ -17,3 +17,4 @@ Convenient CLI app for manipulation of [VictiScout](https://github.com/frc1418/V
 Commands are being added as needed, so for now they're few. That will gradually change.
 * `vs cons` - consolidate all JSON scouting data files in the working directory into one.
 * `vs csv`/`spreadsheet`/`ss` - convert raw JSON file into a CSV spreadsheet. [drv](https://github.com/ErikBoesen/drv) can be used to easily send this file to Google Drive for manipulation without any proprietary programs.
+* `vs conf` - remove duplicate matches.
