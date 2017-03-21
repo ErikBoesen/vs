@@ -12,7 +12,7 @@ class VS:
 
     def dump(self, data):
         """
-        Output list of match data into `data.json` file.
+        Output list of match data into data.json file.
 
         :param data: List (or, in theory, other data) to dump.
         """
@@ -109,7 +109,7 @@ class VS:
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Process VictiScout data.')
+    parser = argparse.ArgumentParser(description='Process FRC scouting data.')
     parser.add_argument('command', type=str, help='What you want to do.')
 
     args = parser.parse_args()

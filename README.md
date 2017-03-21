@@ -1,5 +1,7 @@
 # `vs`
-Convenient CLI app for manipulation of [VictiScout](https://github.com/frc1418/VictiScout) data. Also works with any compatible JSON-format data.
+Data analysis suite for manipulation of FRC scouting data.
+
+Originally designed for [VictiScout](https://github.com/frc1418/VictiScout) data, but also works with [XScout](https://github.com/Team612/XScout)'s and any other JSON-formatted scouting data.
 
 ## Installation
 * Install `python3`.
