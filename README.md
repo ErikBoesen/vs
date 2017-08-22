@@ -9,11 +9,7 @@ Originally designed for [VictiScout](https://github.com/frc1418/VictiScout) data
 
         git clone https://github.com/frc1418/vs && cd vs
 
-* Copy `vs.py` to an executable location, for example:
-
-        cp vs.py /usr/local/bin/vs
-
-    Make sure to use `chmod +x vs.py` first to mark the script as executable if necessary.
+* Run `sudo make install` to install `vs` and its manpage.
 
 ## Commands
 Commands are being added as needed, so for now they're few. That will gradually change.
