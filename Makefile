@@ -12,6 +12,8 @@ all:
 	@echo did nothing. try targets: install, or uninstall.
 
 install:
+	pip3 install -r requirements.txt
+
 	test -d $(INSTDIR) || mkdir -p $(INSTDIR)
 	test -d $(INSTBIN) || mkdir -p $(INSTBIN)
 	test -d $(INSTMAN) || mkdir -p $(INSTMAN)
