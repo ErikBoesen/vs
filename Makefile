@@ -1,9 +1,16 @@
-PREFIX=/usr/local
+PREFIX=/usr
 DESTDIR=
 
 INSTDIR=$(DESTDIR)$(PREFIX)
-INSTBIN=$(INSTDIR)/bin
-INSTMAN=$(INSTDIR)/share/man/man7
+INSTBIN=$(INSTDIR)/local/bin
+
+detected_OS := $(shell sh -c 'uname -s 2>/dev/null || echo not')
+ifeq ($(detected_OS),Linux)
+    INSTMAN=$(INSTDIR)/share/man/man7
+endif
+ifeq ($(detected_OS),Darwin)
+    INSTMAN=$(INSTDIR)/local/share/man/man7
+endif
 
 SCRIPT=vs
 MANPAGE=$(SCRIPT).7
