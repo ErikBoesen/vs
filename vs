@@ -5,10 +5,12 @@ import os
 import json
 import csv
 from termcolor import colored as c
+import re
 
 
 class VS:
     """Manage data operations independent of user input."""
+    QUOTES = re.compile('[“”]')
 
     def dump(self, data):
         """
@@ -27,7 +29,8 @@ class VS:
         """
         try:
             with open(filename) as f:
-                return json.loads(f.read())
+                # Need to account for JSON data occasionally containing nonstandard quotes
+                return json.loads(re.sub(self.QUOTES, '"', f.read()))
         except OSError:
             return []
 
@@ -39,7 +42,7 @@ class VS:
         """
         # TODO: Unbundle all file I/O from this method.
         files = [f for f in os.listdir(directory) if f.endswith('.json')]
-        if len(files) and not files[0].endswith('data.json'):
+        if len(files) > 1 or not files[0].endswith('data.json'):
             matches = []
 
             for f in files:
