@@ -3,6 +3,8 @@ Data analysis suite for manipulation of FRC scouting data.
 
 Originally designed for [VictiScout](https://github.com/frc1418/VictiScout) data, but also works with [XScout](https://github.com/Team612/XScout)'s and any other JSON-formatted scouting data.
 
+Disclaimer: [VictiScout](https://github.com/frc1418/VictiScout) now contains the features to process data by itself. This tool still functions but will not receive future updates.
+
 ## Installation
 * Install `python3`.
 * Clone the `vs` repository and move into it:
