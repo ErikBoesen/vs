@@ -2,8 +2,9 @@ import qrcode
 from qrcode.image.pure import PymagingImage
 
 import json
-with open('/Users/boesene/Desktop/all.json', 'r') as f:
-    data = json.load(f)
+import csv
+with open('/Users/boesene/Desktop/data.csv', 'r') as f:
+    data = f.read()
 
 qr = qrcode.QRCode(
     version=1,
@@ -11,7 +12,7 @@ qr = qrcode.QRCode(
     box_size=10,
     border=0,
 )
-qr.add_data(json.dumps(data))
+qr.add_data(data)
 qr.make(fit=True)
 
 img = qr.make_image(fill_color="#333333", back_color="white")
