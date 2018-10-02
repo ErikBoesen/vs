@@ -1,9 +1,10 @@
 import qrcode
 from qrcode.image.pure import PymagingImage
+import os
 
 import json
 import csv
-with open('/Users/boesene/Desktop/data.csv', 'r') as f:
+with open(os.getenv('HOME') + '/Desktop/data.csv', 'r') as f:
     data = f.read()
 
 qr = qrcode.QRCode(
